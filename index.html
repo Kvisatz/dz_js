@@ -122,18 +122,34 @@
 	// и реализовать это через именованную функцию
 
 
-	var triangleSide = [];
-	var sideNames = ['Введите длину 1го катета в сантиметрах', 'Введите длину 2го катета в сантиметрах', 'Введите длину гипотенузы в сантиметрах'];
-	for(var i = 0; i < 3; i = i + 1){
-		triangleSide[i] = prompt(`${sideNames[i]}`);
-		console.log(triangleSide);
+	let triangleSide = [];
+	let sideNames = ['Введите длину 1го катета в сантиметрах', 'Введите длину 2го катета в сантиметрах', 'Введите длину гипотенузы в сантиметрах'];
+	for(let i = 0; i < 3; i = i + 1){
+		triangleSide[i] = Number(prompt(`${sideNames[i]}`));		
+	}
+	let perimetr = (a , b , c) =>{
+		let peri = (a + b + c)/2;
+		return peri;
 	}
 	
-
+	let square = (a , b , c, d) =>{
+		let sqr = d*(d - a)*(d - b)*(d - c);
+		return Math.sqrt(sqr);
+	}
 	
-
-
-
+	let rectangular = (a, b)=>{
+		let rectSqr = (a * b)/2;
+		return rectSqr;
+	}
+	
+	let katet = (triangleSide[0]*triangleSide[0]) + (triangleSide[1]*triangleSide[1]);
+	let gipotenus = triangleSide[2]*triangleSide[2];
+	if (katet == gipotenus) {
+		console.log(rectangular(triangleSide[0], triangleSide[1]));
+	}
+	else{
+		console.log(square(triangleSide[0], triangleSide[1], triangleSide[2], perimetr(triangleSide[0], triangleSide[1], triangleSide[2])));
+	}
 
 	</script>
 
