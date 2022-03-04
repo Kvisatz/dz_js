@@ -3,162 +3,26 @@
 <head>
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link rel="stylesheet" href="css/style.css">
 	<title>Document</title>
 
 </head>
 <body>
-
-	
-
+	<img src="images/cat.jpg" alt="" class="er">
 	<script>
-
-/*
-	met();
-
-	function met(){
-		console.log(1);
-	}
-*/
-	
-/*	
-	var b = function (){
-		console.log(2);
-	}
-	b();
-*/	
-
-/*
-	var c = ()=>{
-		console.log(3);
-	}
-
-	c();
-*/
-/*
-	(function(){
-		console.log(4);
-	})();
-
-*/
-
-/*
-	var massValues = [];
-	var massNumName = ['первое', 'второе'];
-
-	for(var i = 0; i < 2; i = i + 1){
-		massValues[i] = prompt(`введите ${massNumName[i]} число`);
-	}
-
-	for(var i = 0; i < massValues.length; i = i + 1){
-		massValues[i] = parseInt(massValues[i]);
-	}
-
-*/
-/*
-	var c1 = Number(prompt(`введите первое число`));
-	var c2 = Number(prompt(`введите второе число`));
-	var o = prompt(`операция`);
-
-	switch(o){
-		case '+': console.log(c1 + c2); break;
-		case '-': console.log(c1 - c2); break;
-		case '/':  console.log(validatorD(c1, c2)); break;
-		default: console.log("error");
-	}
-
-	function validatorD(x, y){
-		if(y == 0){
-			return 'На ноль делить нельзя';
+		
+		let animateChoice = prompt('Введите тип анимации: 1) heart, 2) invis');
+		let image = document.querySelector('img');
+		
+		console.log(image);
+		if (animateChoice == 'invis') {
+			image.classList.add('away');
 		}
 		else{
-			return x / y;
+			image.classList.add('heart');
 		}
-	}
-*/
 
 
-/*
-	function met(){
-		1 + 1;
-		return 3;
-		console.log(345345);
-		
-	}
-
-	console.log(met());
-
-*/
-
-	//var colors = ["red", "green", "red", "yellow", "#f00", "Red", "#F00"];
-
-	//var colors = ["#f00", "red", "green", "yellow", "Red"];
-
-
-	// function itemLovercase(s) {
-	// 	return s.toLowerCase();
-	// }
-
-/*
-	for(var i = 0; i < colors.length; i = i + 1){
-		colors[i] = itemLovercase(colors[i]);
-	}
-*/
-
-	// var count = 0;
-	// for(var i = 0; i < colors.length; i = i + 1){
-	// 	colors[i] = itemLovercase(colors[i]);
-
-	// 	if((colors[i] == "red") || (colors[i] == "#f00")){
-	// 		count = count + 1;
-	// 	}
-
-	// }
-	// console.log(count);
-
-
-
-	// посчитать площадь треугольника (прямоугольного)
-	// запросить у пользователя все необходимые данные (prompt)
-	// и реализовать это через именованную функцию
-
-
-	/*let triangleSide = [];
-	let sideNames = ['Введите длину 1го катета в сантиметрах', 'Введите длину 2го катета в сантиметрах', 'Введите длину гипотенузы в сантиметрах'];
-	for(let i = 0; i < 3; i = i + 1){
-		triangleSide[i] = Number(prompt(`${sideNames[i]}`));		
-	}
-	let perimetr = (a , b , c) =>{
-		let peri = (a + b + c)/2;
-		return peri;
-	}
-	
-	let square = (a , b , c, d) =>{
-		let sqr = d*(d - a)*(d - b)*(d - c);
-		return Math.sqrt(sqr);
-	}
-	
-	let rectangular = (a, b)=>{
-		let rectSqr = (a * b)/2;
-		return rectSqr;
-	}
-	
-	let katet = (triangleSide[0]*triangleSide[0]) + (triangleSide[1]*triangleSide[1]);
-	let gipotenus = triangleSide[2]*triangleSide[2];
-	if (katet == gipotenus) {
-		console.log(rectangular(triangleSide[0], triangleSide[1]));
-	}
-	else{
-		console.log(square(triangleSide[0], triangleSide[1], triangleSide[2], perimetr(triangleSide[0], triangleSide[1], triangleSide[2])));
-	}*/
-
-	var kurl = {
-		'protocol': location.protocol,
-		'hostname': location.hostname,
-		'pathname': location.pathname,
-		'search': location.search,
-		'hash': location.hash,
-	}
-	console.log(kurl);
 	</script>
 
 
