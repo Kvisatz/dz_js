@@ -4,22 +4,64 @@
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<link rel="stylesheet" href="css/style.css">
+	<link rel="stylesheet" href="css/all.min.css">
 	<title>Document</title>
 
 </head>
 <body>
-	<img src="images/cat.jpg" alt="" class="er">
+	<div class="menu">
+		<ul class="menu__list">
+			<li class="menu__list-item">
+				<a href="https://github.com/" class="menu__list-item-link">
+					<p class="menu__list-item-link-paragr">Home</p>
+					<i class="fa-solid fa-angle-right"></i>
+				</a>
+			</li>
+			<li class="menu__list-item">
+				<a href="#" class="menu__list-item-link">
+					<p class="menu__list-item-link-paragr">Pages</p>
+					<i class="fa-solid fa-angle-right"></i>
+				</a>
+			</li>
+			<li class="menu__list-item">
+				<a href="#" class="menu__list-item-link">
+					<p class="menu__list-item-link-paragr">Photos</p>
+					<i class="fa-solid fa-angle-right"></i>
+				</a>
+			</li>
+			<li class="menu__list-item">
+				<a href="#" class="menu__list-item-link">
+					<p class="menu__list-item-link-paragr">Links</p>
+					<i class="fa-solid fa-angle-right"></i>
+				</a>
+			</li>
+			<li class="menu__list-item">
+				<a href="#" class="menu__list-item-link">
+					<p class="menu__list-item-link-paragr">Info</p>
+					<i class="fa-solid fa-angle-right"></i>
+				</a>
+			</li>
+		</ul>
+	</div>
 	<script>
-		
-		let animateChoice = prompt('Введите тип анимации: 1) heart, 2) invis');
-		let image = document.querySelector('img');
-		
-		console.log(image);
-		if (animateChoice == 'invis') {
-			image.classList.add('away');
-		}
-		else{
-			image.classList.add('heart');
+		let link = document.querySelectorAll('.menu__list-item-link');
+		console.log(link);
+
+		for(let i = 0; i < link.length; i = i + 1){
+			console.log(link[i]);
+
+			link[i].addEventListener('click', function(evt){
+				for(let i = 0; i < link.length; i = i + 1){
+					link[i].classList.remove('active');
+					console.log(link[i]);
+				}
+				let li = evt.target.closest('.menu__list-item-link');
+				console.log(li);
+				if(!evt.target.classList.contains('active')){
+					li.classList.add('active');
+					li.removeAttribute("href");
+				}
+			})
 		}
 
 
