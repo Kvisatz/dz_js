@@ -44,22 +44,23 @@
 		</ul>
 	</div>
 	<script>
-		let link = document.querySelectorAll('.menu__list-item-link');
-		console.log(link);
+		let links = document.querySelectorAll('.menu__list-item-link');
+		console.log(links);
 
-		for(let i = 0; i < link.length; i = i + 1){
-			console.log(link[i]);
+		for(let link of links){
+			console.log(link);
 
-			link[i].addEventListener('click', function(evt){
-				for(let i = 0; i < link.length; i = i + 1){
-					link[i].classList.remove('active');
-					console.log(link[i]);
-				}
+			link.addEventListener('click', function(evt){
+				console.log(link);
+				let linkActive = document.querySelector(".menu__list-item-link.active");
+				console.log(linkActive);
+	
 				let li = evt.target.closest('.menu__list-item-link');
 				console.log(li);
 				if(!evt.target.classList.contains('active')){
 					li.classList.add('active');
 					li.removeAttribute("href");
+					linkActive.classList.remove('active');
 				}
 			})
 		}
