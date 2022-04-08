@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Document</title>
+</head>
+<body>
+	
+	<div class="chat">
+		<div class="msgs">
+			
+		</div>
+
+		<div class="send_wrap">
+			<form>
+				<textarea cols="30" rows="10" class="field_content"></textarea>
+				<button class="btn_send" type="button">Отправить</button>
+			</form>
+		</div>	
+	</div>
+
+
+	<script>
+		let msgs = [];
+
+
+		// let msg = {
+		// 	author: "Олег",
+		// 	date: new Date(),
+		// 	avatar: "avatar2.png",
+		// 	content: "А как сделать тень?",
+		// }
+
+		function render(msg){
+			let msgsEl = document.querySelector(".msgs");
+
+			msgsEl.innerHTML += `<div class="msg">
+									<img src="images/${msg.avatar}">	
+									<p>${msg.author}</p>
+									<p>${msg.date}</p>
+									<p>${msg.content}</p>
+								</div>`; 
+		}
+
+		let btnSendEl = document.querySelector(".btn_send");
+
+		let sendOn = (evt)=>{
+			if(evt.pointerType === "mouse" || evt.keyCode == 13){
+				let contentEl = document.querySelector(".field_content");
+				let content = contentEl.value.trim();
+				if(content.length > 0){
+					let date = new Date();
+					let date_msg = `${date.getHours()}:${date.getMinutes()}:${date.getSeconds()}`;
+
+					let msg = {
+						author: "Олег",
+						date: date_msg,
+						avatar: "avatar2.png",
+						content: content,
+					}
+					render(msg);
+					contentEl.value = "";
+				}
+			}
+		}
+
+		btnSendEl.addEventListener('click', sendOn);
+		document.addEventListener('keypress', sendOn);
+
+
+	</script>
+</body>
+</html>
