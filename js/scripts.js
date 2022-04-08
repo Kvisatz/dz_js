@@ -209,23 +209,25 @@ let offers = [
 				else{
 					if(chooseLink.getAttribute('aria-label') == 'Previous'){
 						console.log(chooseLink.getAttribute('aria-label'));
-						if(activePage !== 1){
+						/*if(activePage !== 1){
 							activePage = activePage - 1;
 							console.log(activePage);
 						}
 						else{
 							activePage = 1;
-						}
+						}*/
+						activePage !== 1 ? activePage = activePage - 1 : activePage = 1;
 					}
 					else{
 						let countPage = Math.ceil(offers.length / COUNT_OFFERS_TO_PAGE);
 						console.log(countPage);
-						if(activePage == countPage){
+						/*if(activePage == countPage){
 							activePage = activePage;
 						}
 						else{
 							activePage = activePage + 1;
-						}
+						}*/
+						activePage == countPage ? activePage = activePage : activePage = activePage + 1;
 
 					}
 				}
