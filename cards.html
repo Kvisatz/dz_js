@@ -14,11 +14,7 @@
 			<div class="chosen_card"></div>
 			<i class="fa fa-sort-desc" aria-hidden="true"></i>
 			<ul class="cards_list">
-				<li>1</li>
-				<li>2</li>
-				<li>3</li>
-				<li>4</li>
-				<li>5</li>
+				
 			</ul>
 		</div>
 		
@@ -104,6 +100,52 @@
 		}
 
 
+		function renderList(){
+			let cardsWrap = document.querySelector(".cards_list");
+			let cardsStr = "";
+			for(let card of cards){
+				console.log(card.cardName);
+				cardsStr += `<li>${card.cardName}</li>`; 
+			}
+			cardsWrap.innerHTML = cardsStr;
+		}
+		renderList();
+
+		function dropList(){
+			let chooseList = document.querySelector(".chosen_card_wrap");
+			chooseList.addEventListener('click', (evt)=>{
+				console.log(evt.target);
+				if(evt.target == null){
+					console.log("Error");
+				}
+				else if(evt.target.classList.contains("chosen_card") || evt.target.classList.contains("fa-sort-desc")){
+					for(let list of evt.target.parentElement.children){
+						console.log(list);
+						if(list.classList.contains('cards_list')){
+							list.classList.add('active');
+						}
+					}
+					
+				}
+			})
+		}
+		dropList();
+
+		function choice(){
+			let cardsList = document.querySelectorAll(".cards_list li");
+			let cardChoice = document.querySelector(".chosen_card");
+			console.log(cardsList);
+			console.log(cardChoice);
+			for(let cardList of cardsList){
+				cardList.addEventListener('click', (evt)=>{
+					cardChoice.innerHTML = evt.target.innerHTML;
+					evt.target.parentElement.classList.remove('active');
+					//classList.remove('active');
+				});
+
+			}
+		} 
+		choice();
 		// дз 
 		// создать массив объектов всех карт где будет храниться название карты и имя картинки с расширением
 		// создать выпадающий список с выбором карты из нашего массива

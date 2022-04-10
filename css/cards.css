@@ -38,9 +38,14 @@ body{
 	box-sizing: border-box;
 	z-index: 10;
 	top: 32px;
+	display: none;
 }
 .cards_list li{
 	padding: 7px 15px;
+}
+.cards_list li:hover{
+	background-color: #000;
+	color: #fff;
 }
 .active{
 	display: block;
