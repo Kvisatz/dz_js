@@ -62,9 +62,11 @@
 			let cardsWrap = document.querySelector(".cards");
 
 			let cardsStr = "";
+			
 			for(let card of cards){
 				console.log(card.cardImg);
-				cardsStr = cardsStr + `<img src='images/${card.cardImg}'>`;
+				
+				cardsStr = cardsStr + `<div class="img_wrap"><img src='images/${card.cardImg}'></div>`;
 			}
 			cardsWrap.innerHTML = cardsStr;
 
@@ -73,32 +75,61 @@
 
 		render();
 
-		function step(){
-			let listImages = document.querySelectorAll(".cards img");
+		let shufflerIntervat = setInterval(()=>{
+					interval();
 
+				}, 2000);
+
+		function step(){
+			let listImages = document.querySelectorAll(".cards .img_wrap");
+			
 			for(let listImage of listImages){
 				listImage.addEventListener('click', (evt)=>{
-					interval();
+					console.log(evt.target.parentElement);
+
+					evt.target.parentElement.classList.add("active");
+					evt.target.classList.add("active");
+					//clearTimeout(interval());
+					//interval();
+					console.log(shufflerIntervat);
+					clearInterval(shufflerIntervat);
+					return evt.target.parentElement;
 				})
+
 			}
+			console.log(listImages);
 		}
-
-		/*setInterval(()=>{
-			interval()
-		}, 2000);*/
-
+		
 		function interval(){
-			document.querySelector(".cards img:last-child").classList.add("card_animate");
-
+			let cardWrapLast = document.querySelector(".cards .img_wrap:last-child");
+			cardWrapLast.classList.add("card_animate");
 			let lastEl = cards[cards.length - 1];
+			console.log(lastEl);
 			cards.pop();
 			cards.unshift(lastEl);
-
-			setTimeout(
+			console.log(cardWrapLast.classList);
+			if(cardWrapLast.classList.contains('active')){
+				console.log(cardWrapLast.classList);
+				let shufflerTimeout = setTimeout(
 				()=>{render()}, 
 			1000);
-		}
+				clearTimeout(shufflerTimeout);
+			}
+			
 
+			
+			//return 
+		}
+		
+
+
+
+		function init(){
+			renderList();
+			dropList();
+			choice();
+		}
+		init();
 
 		function renderList(){
 			let cardsWrap = document.querySelector(".cards_list");
@@ -109,7 +140,7 @@
 			}
 			cardsWrap.innerHTML = cardsStr;
 		}
-		renderList();
+		
 
 		function dropList(){
 			let chooseList = document.querySelector(".chosen_card_wrap");
@@ -129,7 +160,7 @@
 				}
 			})
 		}
-		dropList();
+		
 
 		function choice(){
 			let cardsList = document.querySelectorAll(".cards_list li");
@@ -145,7 +176,7 @@
 
 			}
 		} 
-		choice();
+		
 		// дз 
 		// создать массив объектов всех карт где будет храниться название карты и имя картинки с расширением
 		// создать выпадающий список с выбором карты из нашего массива
