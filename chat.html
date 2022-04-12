@@ -112,6 +112,7 @@
 		                    </ul>
 		                </div>
 		                <div class="chat-message clearfix">
+		                	<div class="typing">печатает</div>
 		                    <div class="input-group mb-0">
 		                        <div class="input-group-prepend btn_send">
 		                            <span class="input-group-text"><i class="fa fa-send"></i></span>
@@ -174,6 +175,19 @@
 		btnSendEl.addEventListener('click', sendOn);
 		document.addEventListener('keypress', sendOn);
 
+		
+		let contentEl = document.querySelector(".field_content");
+		let showTyping = document.querySelector('.chat-message .typing');
+		contentEl.addEventListener('keypress', (evt)=>{
+			console.log(evt.keyCode);
+			if(evt.keyCode !== 13){
+				showTyping.style.display = 'block';
+
+			}
+			else{
+				showTyping.style.display = 'none';
+			}
+		});
 
 	</script>
 
