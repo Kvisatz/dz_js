@@ -175,8 +175,31 @@ body{
 .chat .chat-message {
     padding: 20px
 }
-.chat-message .typing{
+.chat-message-typing_wrap{
     display: none;
+    position: relative;
+}
+.chat-message-typing{
+    display: block;
+    margin-top: -20px;
+}
+.dot_one,
+.dot_two,
+.dot_three{
+    display: block;
+    margin-top: -20px;
+    opacity: 0;
+    animation: dotAnim 1s ease infinite;
+}
+
+.dot_two{
+    animation-delay: -0.7s;
+}
+.dot_three{
+    animation-delay: -1.5s;
+}
+.typing{
+    display: flex;
 }
 .online,
 .offline,
@@ -210,7 +233,17 @@ body{
     clear: both;
     height: 0
 }
-
+@keyframes dotAnim{
+    0%{
+        opacity: 1;
+    }
+    50%{
+        opacity: 0;
+    }
+    100%{
+        opacity: 1;
+    }
+}
 @media only screen and (max-width: 767px) {
     .chat-app .people-list {
         height: 465px;
