@@ -64,7 +64,7 @@
 			let cardsStr = "";
 			
 			for(let card of cards){
-				console.log(card.cardImg);
+				//console.log(card.cardImg);
 				
 				cardsStr = cardsStr + `<div class="img_wrap"><img src='images/${card.cardImg}'></div>`;
 			}
@@ -74,30 +74,47 @@
 		}
 
 		render();
-
+		let shufflerTimeout = interval();
 		let shufflerIntervat = setInterval(()=>{
 					interval();
 
 				}, 2000);
+		console.log(shufflerIntervat);
 
 		function step(){
 			let listImages = document.querySelectorAll(".cards .img_wrap");
 			
 			for(let listImage of listImages){
 				listImage.addEventListener('click', (evt)=>{
-					console.log(evt.target.parentElement);
-
+					
+					
+					
+					clearTimeout(shufflerTimeout);
+					console.log(shufflerTimeout);
 					evt.target.parentElement.classList.add("active");
 					evt.target.classList.add("active");
-					//clearTimeout(interval());
+					//
 					//interval();
-					console.log(shufflerIntervat);
 					clearInterval(shufflerIntervat);
-					return evt.target.parentElement;
+					console.log(shufflerIntervat);
+					for(let card of cards){
+						//console.log(card);
+						if(`images/${card.cardImg}` == evt.target.getAttribute('src')){
+							console.log(card.cardName);
+							let cardChoice = document.querySelector(".chosen_card");
+							if(card.cardName == cardChoice){
+								console.log(card.cardName);
+							}
+						}
+					}
+					//console.log(evt.target.getAttribute('src'));
+					
+					//console.log(cardChoice.innerHTML);
+					//return evt.target.parentElement;
 				})
 
 			}
-			console.log(listImages);
+			//console.log(listImages);
 		}
 		
 		function interval(){
@@ -108,17 +125,15 @@
 			cards.pop();
 			cards.unshift(lastEl);
 			console.log(cardWrapLast.classList);
-			if(cardWrapLast.classList.contains('active')){
-				console.log(cardWrapLast.classList);
-				let shufflerTimeout = setTimeout(
-				()=>{render()}, 
-			1000);
-				clearTimeout(shufflerTimeout);
-			}
-			
 
 			
-			//return 
+				
+				let shufflerTimeout = setTimeout(
+				()=>{render()}, 
+			1900);
+				//clearTimeout(shufflerTimeout);
+			console.log(shufflerTimeout);
+			return shufflerTimeout;
 		}
 		
 
