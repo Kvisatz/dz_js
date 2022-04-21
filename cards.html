@@ -97,13 +97,17 @@
 					//interval();
 					clearInterval(shufflerIntervat);
 					console.log(shufflerIntervat);
+					let cardChoice = document.querySelector(".chosen_card");
+					let bodyChoice = document.querySelector("body");
 					for(let card of cards){
 						//console.log(card);
 						if(`images/${card.cardImg}` == evt.target.getAttribute('src')){
 							console.log(card.cardName);
-							let cardChoice = document.querySelector(".chosen_card");
-							if(card.cardName == cardChoice){
+							
+							if(card.cardName == cardChoice.innerHTML){
 								console.log(card.cardName);
+								bodyChoice.innerHTML = "УГАДАЛ";
+
 							}
 						}
 					}

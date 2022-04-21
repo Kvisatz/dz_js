@@ -4,6 +4,9 @@ body{
 	display: flex;
 	flex-direction: column;
 	margin: 0;
+	color: #f00;
+	background-color: transparent;
+	text-align: center;
 }
 .cards_choice{
 	position: relative;
@@ -12,6 +15,8 @@ body{
 	left: 50%;
 	margin-left: -250px;
 	margin-bottom: 300px;
+	color: #000;
+	text-align: start;
 }
 .chosen_card_wrap{
 	border: 1px solid #000;
